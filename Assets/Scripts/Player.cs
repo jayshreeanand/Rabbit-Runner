@@ -14,15 +14,18 @@ public class Player : MonoBehaviour
 
   }
   // Update is called once per frame
-  void Update()
+  void FixedUpdate()
   {
+      //GetComponent<Rigidbody2D>().velocity = runVelocity;
 
     // Jump
     if (Input.GetKeyUp("space") || (Input.touchCount == 1))
     {
+      GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
       GetComponent<Rigidbody2D>().AddForce(jumpForce);
       GetComponent<Rigidbody2D>().velocity = runVelocity;
-      
+
     }
 
     // Die by being off screen
